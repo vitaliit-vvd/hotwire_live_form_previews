@@ -8,6 +8,11 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def preview
+    @preview_task = Task.new(task_params)
+    respond_to(&:turbo_stream)
+  end
+
   # GET /tasks/1 or /tasks/1.json
   def show; end
 
